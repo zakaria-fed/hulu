@@ -1,7 +1,10 @@
 import Head from "next/head";
 import Header from "../components/Header";
+import Nav from "../components/Nav";
+import Results from "../components/Results";
+import requests from "../utils/requests";
 
-export default function Home() {
+export default function Home({ result }) {
   return (
     <div>
       <Head>
@@ -10,10 +13,32 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      {console.log(result)}
+
       {/* Header */}
       <Header />
       {/* Nav */}
+      <Nav />
       {/* Results */}
+      <Results results={result} />
     </div>
   );
+}
+
+// This func will get executed before the user will get the response (after he types the URL)
+export async function getServerSideProps(context) {
+  const genre = context.query.genre;
+
+  const request = await fetch(
+    `https://api.themoviedb.org/3${
+      requests[genre]?.url || requests.fetchTrending.url
+    }`
+  ).then((res) => res.json());
+
+  // This return will return an object containing result to the Home Component
+  return {
+    props: {
+      result: request.results,
+    },
+  };
 }
