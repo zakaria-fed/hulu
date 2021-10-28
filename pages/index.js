@@ -13,8 +13,6 @@ export default function Home({ result }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {console.log(result)}
-
       {/* Header */}
       <Header />
       {/* Nav */}
