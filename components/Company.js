@@ -1,15 +1,17 @@
-import Image from "next/image";
-
 const Company = ({ logo, name, originCountry }) => {
   return (
-    <div
-      className="flex-1 md:flex-none relative h-32 w-60"
-    >
-      <Image
-        src={`https://image.tmdb.org/t/p/original/${logo}`}
-        className="rounded-full"
-        layout="fill"
-      />
+    <div className="bg-gray-900 rounded mr-4">
+      {logo ? (
+        <img
+          width="80"
+          alt={name}
+          src={`https://image.tmdb.org/t/p/original/${logo}`}
+        />
+      ) : (
+        <h6 className="mr-4">
+          {name} <i>{originCountry && `: ${originCountry}`}</i>
+        </h6>
+      )}
     </div>
   );
 };
