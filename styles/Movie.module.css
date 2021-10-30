@@ -1,0 +1,16 @@
+.movie,
+.movie__header {
+  margin: 0;
+}
+
+.movie__header {
+  background-color: rgba(0, 0, 0, 0.555);
+}
+
+.movie__header,
+.movie__header__left {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: multiply;
+}
