@@ -11,7 +11,7 @@ const movie = ({ movie }) => {
       </Head>
 
       <header
-        className={`${MovieStyles.movie__header} movie__header h-auto xl:h-96 flex items-center justify-center`}
+        className={`${MovieStyles.movie__header} movie__header h-auto xl:h-96 flex flex-wrap items-center justify-center`}
       >
         <div
           className={`${MovieStyles.movie__header__left} movie__header__left w-40 h-60 xl:h-80 xl:w-56 rounded hover:scale-105 cursor-pointer transition-all duration-200`}
